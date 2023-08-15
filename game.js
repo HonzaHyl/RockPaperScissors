@@ -17,9 +17,9 @@ function playRound(playerSelection, computerSelection) {
     switch (player) {
         case "rock":
             if (computer === "paper"){ 
-                return "You lose! Paper beats rock!"
+                return "Player loses"
             } else if (computer === "scissors") {
-                return "You win! Scissors beats rock!"
+                return "Player wins"
             } else {
                 return "It's a tie!"
             };
@@ -27,9 +27,9 @@ function playRound(playerSelection, computerSelection) {
         
         case "paper":
             if (computer === "scissors"){ 
-                return "You lose! Scissors beats paper!"
+                return "Player loses"
             } else if (computer === "rock") {
-                return "You win! Paper beats rock!"
+                return "Player wins"
             } else {
                 return "It's a tie!"
             };
@@ -37,9 +37,9 @@ function playRound(playerSelection, computerSelection) {
 
         case "scissors":
             if (computer === "rock"){ 
-                return "You lose! Rock beats scissors!"
+                return "Player loses"
             } else if (computer === "paper") {
-                return "You win! Scissors beats paper!"
+                return "Player wins"
             } else {
                 return "It's a tie!"
             };
@@ -47,3 +47,34 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
+function game() {
+    
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5;) {
+        const playerSelection = prompt("Enter on of following: Rock, Paper or Scissors");
+        const round = playRound(playerSelection,getComputerChoice())
+
+        if (round === "It's a tie!") {
+            console.log("Tie. Play again.")
+            continue;
+        } else if (round === "Player wins") {
+            i++;
+            playerScore++;
+            console.log("You win this round!")
+        } else {
+            i++;
+            computerScore++;
+            console.log("You lose this round!")
+        };
+    };
+
+    if (playerScore > computerScore) {
+        console.log("You win!")
+    } else {
+        console.log("You lose!") 
+    };
+}
+
+game();
