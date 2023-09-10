@@ -50,14 +50,16 @@ function displayWinner(){
     if(computerScore>playerScore){
         alert('Computer wins!')
     }else{
-        alert('Plyer wins!')
+        alert('Player wins!')
     };
 
 };
 // function for keeping score on screen
 function updateScore(){
-    const score = document.querySelector('.score');
-    score.textContent = (`${playerScore}-${computerScore}`);
+    const player_score = document.querySelector('.player-score');
+    const computer_score = document.querySelector('.computer-score');
+    player_score.textContent = (`${playerScore}`);
+    computer_score.textContent = (`${computerScore}`);
 
 };
 // function for restarting the game
@@ -66,8 +68,10 @@ function restartGame(){
     playerScore = 0;
     roundCounter = 0;
 
-    const score = document.querySelector('.score');
-    score.textContent = (`${playerScore}-${computerScore}`);
+    const player_score = document.querySelector('.player-score');
+    const computer_score = document.querySelector('.computer-score');
+    player_score.textContent = (`${playerScore}`);
+    computer_score.textContent = (`${computerScore}`);
 };
 
 
